@@ -25,7 +25,42 @@ public class App
         var peek3 = tower3.peek();
         if (peek1 != null)
         {
-            
+            if (peek2 == null)
+            {
+                tower2.add(tower1.pop());
+                solve(tower1, tower2, tower3, initalSize);
+            }
+            else if (peek2 > peek1)
+            {
+                tower2.add(tower1.pop());
+                solve(tower1, tower2, tower3, initalSize);
+            }
+        }
+        if (peek2 != null)
+        {
+            if (peek3 == null)
+            {
+                tower3.add(tower2.pop());
+                solve(tower1, tower2, tower3, initalSize);
+            }
+            else if (peek3 > peek2)
+            {
+                tower3.add(tower2.pop());
+                solve(tower1, tower2, tower3, initalSize);
+            }
+        }
+        if (peek3 != null)
+        {
+            if (peek1 == null)
+            {
+                tower2.add(tower1.pop());
+                solve(tower1, tower2, tower3, initalSize);
+            }
+            else if (peek1 > peek3)
+            {
+                tower1.add(tower3.pop());
+                solve(tower1, tower2, tower3, initalSize);
+            }
         }
     }
 
