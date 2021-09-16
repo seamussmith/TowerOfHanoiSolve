@@ -10,20 +10,27 @@ public class App
     public static void main(String[] args) 
     {
         var tower1 = new Stack<Integer>();
-        tower1.addAll(Arrays.asList(5, 4, 3, 2, 1));
+        tower1.addAll(Arrays.asList(2, 1));
 
         var tower2 = new Stack<Integer>();
         var tower3 = new Stack<Integer>();
-        solveBogus(tower1, tower2, tower3, tower1.size());
+        solve(tower1, tower2, tower3, tower1.size());
         System.out.println(tower2);
-        System.out.println(tower3);
+        // System.out.println(tower3);
     }
 
     static Random rng = new Random();
 
-    static void solve(Stack<Integer> tower1, Stack<Integer> tower2, Stack<Integer> tower3, int initalSize)
+    static void solve(Stack<Integer> from, Stack<Integer> to, Stack<Integer> spare, int toMove)
     {
-        
+        if (toMove == 1)
+        {
+            to.add(from.pop());
+            return;
+        }
+        solve(from, spare, to, toMove-1);
+        to.add(from.pop());
+        solve(spare, to, from, toMove-1);
     }
 
     // Stack overflows half the time lmfao
