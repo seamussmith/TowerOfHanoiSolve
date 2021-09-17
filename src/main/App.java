@@ -14,7 +14,7 @@ public class App
 
         var tower2 = new Stack<Integer>();
         var tower3 = new Stack<Integer>();
-        solve(tower1, tower2, tower3, tower1.size());
+        solve(tower1, tower3, tower2, tower1.size());
         System.out.println(tower2);
         // System.out.println(tower3);
     }
